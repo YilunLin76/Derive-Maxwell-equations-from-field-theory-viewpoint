@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin = 1in}
+\usepackage{titling}
+\usepackage{amsmath, amssymb, mathtools, braket, physics}
+\usepackage{graphicx} % Required for inserting images
+\numberwithin{equation}{section}
+\AtBeginDocument{\Large\selectfont}
+\title{Derive Maxwell's equations from field theory viewpoint}
+\author{YILUN LIN}
+\date{June 2025}
+
+\begin{document}
+
+\maketitle
+\textbf{This note aims to derive the Maxwell's equations in classical electrodynamics from the axiomatic field theory viewpoint. The derivation starts with the well-known expression of the Lagrangian $\mathcal{L}$ of a electromagnetic field in field theory and proceeds in three steps:}   \\
+\hspace*{5em}{\textbf{1. Assumptions and Lagrangian;}}\\
+\hspace*{5em}{\textbf{2. Variation\;$\longrightarrow$\; Euler-Lagrange Equations
+\;$\longrightarrow$\; Inhomogeneous Maxwell's equations;}}\\
+\hspace*{5em}{\textbf{3. Bianchi Identity of the Field Strength Tensor\;$\longrightarrow$\; Homogeneous Maxwell's equations.}} 
+\\[1em]
+
+\section{Lagrangian Density}
+\textbf{(a) Basic field variable:}
+The electromagnetic field is described by the four-potential $A_\mu(\Vec{x})$ in field theory.
+\\[0.5em]
+\textbf{(b) Definition of the strength of field:}
+\begin{equation}\label{eq: def. field strength F}
+   \mathbf F_{\mu\nu}\, \equiv \, \partial_\mu A_\nu-\partial_\nu A_\mu, \;\; 
+   \mathbf F^{\mu\nu}\,=\,\mathbf{g^{\mu\alpha}g^{\nu\beta}F_{\alpha\beta}}.
+\end{equation}
+\textbf{(c) Construct the Lagrangian:}
+\begin{equation}\label{eq:Lagrangian of electromagnetic field}
+   \mathcal{L}\,=\,-\frac{1}{4} \mathbf{F_{\mu\nu}F^{\mu\nu}}\,-\,j^\mu A_\mu.
+\end{equation}
+\textbf{Note:}
+\hspace{3em}\begin{enumerate}
+\item The kinetic term $-\frac{1}{4}\mathbf{F_{\mu\nu}F^{\mu\nu}}$ ensures the correct field dynamics and energy-momentum tensor.\\
+\item The second term in \eqref{eq:Lagrangian of electromagnetic field} enforces coupling to sources and yields charge conservation $\partial_\mu j^\mu\,=\,0$ by gauge invariance.
+\end{enumerate}
+
+\section{Variation and Inhomogeneous Maxwell's Equations}
+It should be noted that the action
+\begin{equation}
+   \mathcal S\:=\:\int\! d^4x\, \mathcal{L}
+\end{equation}
+must be stationary on the boundary of the region.\\
+\\[0.5em]
+While the Euler-Lagrange equations read 
+\begin{equation}
+   \frac{\partial\mathcal{L}}{\partial A_\mu}\,-\,\partial_\nu\frac{\partial\mathcal{L}}{\partial(\partial_\nu A_\mu)}\,=\,0,
+\end{equation}
+thus
+\begin{equation}
+   \partial_\nu\frac{\partial\mathcal{L}}{\partial(\partial_\nu A_\mu)}\,\frac{\partial\mathcal{L}}{\partial A_\mu}\,=\,0.
+\end{equation}
+\\[0.5em]
+Firstly, we compute
+\begin{equation}
+\begin{split}
+\frac{\partial\mathcal{L}}{\partial(\partial_\nu A_\mu)}\, &= -\frac{1}{4}\cdot2\,
+\mathbf F_{\rho\sigma}\frac{\partial \mathbf F^{\rho\sigma}}{\partial(\partial_\nu A_\mu)}\\ &=-\frac{1}{2}\,\mathbf F^{\rho\sigma}(\delta^\nu_\rho\delta^\mu_\sigma\,-\,\delta^\nu_\sigma\delta^\mu_\rho)\\
+&=-\mathbf F^{\nu\mu},
+\end{split}
+\end{equation}
+and since
+\begin{equation}
+\frac{\partial\mathcal{L}}{\partial A_\mu}\,=\,-j^\mu,
+\end{equation}
+substituting into the Euler-Lagrange equations gives
+\begin{equation}
+\begin{split}
+\partial_\nu(-\mathbf F^{\nu\mu})\,-\,(-j^\mu)\,&=\,0\\
+\partial_\nu\mathbf F^{\nu\mu}\,&=\,j^\mu.
+\end{split}
+\end{equation}
+These are the inhomogeneous set of the Maxwell's equations\,(i.e.Gauss's law and the Ampere-Maxwell law):
+\begin{equation}
+    \nabla\cdot\mathbf E\,=\,\rho\;,
+\end{equation}
+\begin{equation}
+    \nabla\times\mathbf B\:-\:\frac{\partial\mathbf E}{\partial t}\:=\:\mathbf j\;.
+\end{equation}
+\newpage
+
+\section{Bianchi Identity and Homogeneous Maxwell's Equations}
+Since $\mathbf F_{\mu\nu}$ is antisymmetric by definition \eqref{eq: def. field strength F}, we always have the identity
+\begin{equation}
+     \partial_\lambda\mathbf F_{\mu\nu}\,+\,\partial_\mu\mathbf F_{\nu\lambda}\,+\,\partial_\nu\mathbf F_{\lambda\mu}\,=\,0.
+\end{equation}
+This identity is exactly the homogeneous set of Maxwell's equations:
+\begin{equation}
+    \nabla\cdot\mathbf B\,=\,0\;,
+\end{equation}
+\begin{equation}
+    \nabla\times\mathbf E\:+\:\frac{\partial\mathbf B}{\partial t}\:=\:0\;.
+\end{equation}
+\\[1em]
+\textbf{We have already derived the classical Maxwell's equations from field theory viewpoint. }
+\\[0.5em]
+\begin{flushright}
+    $\mathbf{QED.}$
+\end{flushright}
+
+\end{document}
